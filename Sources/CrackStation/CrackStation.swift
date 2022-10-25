@@ -12,7 +12,7 @@ public class CrackStation: Decrypter {
                     self.dataDict = jsonResult
                 }
                 else {
-                    print ("\"data.json is empty.\"")
+                    print ("\"data.json\" is empty.")
                 }
             }
             catch {
