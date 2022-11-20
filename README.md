@@ -1,10 +1,11 @@
 # SHA Crack Station
-An SHA crack station coded by Swift for homework delivery purposes.
+A Swift library for cracking hash ciphertext
 
-It shows how to crack passwords easily if the password is too short. Hopefully, it can improve general people's cybersecurity awareness.
+## Overview
+This library aims to crack unsalted [SHA-1](https://en.wikipedia.org/wiki/SHA-1) and [SHA-2](https://en.wikipedia.org/wiki/SHA-2) (SHA-256) hashed text. It is able to decrypt/crack/brute-force the ciphertext which its plaintext matches  `^[A-Za-z0-9?!]{1,3}$` by a pre-generated dictionary (JSON file).
 
-## Feature
-- Use the pre-generated dictionary to crack SHA-1 and SHA-256, which plaintext matches `^[A-Za-z0-9?!]{1,3}$`.
+## Mission Statement
+[SHA](https://en.wikipedia.org/wiki/Secure_Hash_Algorithms) is a common hashing algorithm for online servers to store sensitive authentication information. This project is showing how to crack or brute force unsalted hashes (passwords) easily if the password is too short. Hopefully, it can improve general people's cybersecurity awareness.
 
 ## Setup
 1. Add the following dependency into `Package.swift`:
