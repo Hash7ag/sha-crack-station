@@ -1,9 +1,11 @@
 import Foundation
 
 public class CrackStation: Decrypter {
-    private var dataDict: Dictionary<String, String> = [:]
+    private let dataDict: Dictionary<String, String>
 
     required public init() {
+        // load data.json and assign to dataDict as dictionary
+        // if loading file fail, dataDict will be empty
         if let path = Bundle.module.url(forResource: "data", withExtension: "json") {
             do {
                 let data = try Data(contentsOf: path)
@@ -12,12 +14,18 @@ public class CrackStation: Decrypter {
                     self.dataDict = jsonResult
                 }
                 else {
-                    print ("\"data.json\" is empty.")
+                    self.dataDict = [:]
+                    print ("\"data.json\" might be empty or corruption.")
                 }
             }
             catch {
+                self.dataDict = [:]
                 print ("\(error)\nSerialization JSON failed. \"data.json\" might be corruption.")
             }
+        }
+        else {
+            self.dataDict = [:]
+            print ("\"data.json\" is not found.")
         }
     }
 
