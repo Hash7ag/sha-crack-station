@@ -7,8 +7,12 @@ This library aims to crack unsalted [SHA-1](https://en.wikipedia.org/wiki/SHA-1)
 ## Mission Statement
 [SHA](https://en.wikipedia.org/wiki/Secure_Hash_Algorithms) is a common hashing algorithm for online servers to store sensitive authentication information. This project is showing how to crack or brute force unsalted hashes (passwords) easily if the password is too short. Hopefully, it can improve general people's cybersecurity awareness.
 
-## Setup
-1. Add the following dependency into `Package.swift`:
+## Installation
+### Swift Package Manager
+The [Swift Package Manager](https://www.swift.org/package-manager) is a tool for managing the distribution of Swift code. It's integrated with the Swift build system to automate the process of downloading, compiling, and linking dependencies."
+
+### Steps
+1. Once you have your Swift package set up, add CrackStation to the list of dependencies in `Package.swift` file.
     ```
     .package(url: "git@github.com:Hash7ag/CrackStation.git", from: "1.0.0")
     ```
@@ -40,9 +44,31 @@ This library aims to crack unsalted [SHA-1](https://en.wikipedia.org/wiki/SHA-1)
     ```
 
 ## Usage
-1. Import the library `CrackStation`; then you should be able to call `decrypt` function and pass your ciphertext with the argument `shaHash`.
-2. If the ciphertext is crackable, it will return the plaintext.
-3. Otherwise, it will return a nill.
+### Steps
+1. Import the library `CrackStation`.
+2. Assign class `CrackStation()` to a constant or a variable.
+3. Now, You should be able to call the `decrypt` function by the constant/variable from the last step, and pass your ciphertext with the argument `shaHash`.
+   1. If the ciphertext is crackable, it will return the plaintext.
+   2. Otherwise, it will return a nill.
+### Example
+```
+import CrackStation
+
+...
+
+let myCrackStation: Decrypter = CrackStation()
+
+let myHash:String = "482e1ae75acdf731feeddc4875fd0fc05ea436a3d751506163989e998ab1038d"
+let yourHash:String = "afa27b44d43b02a9fea41d13cedc2e4016cfcf87c5dbf990e593669aa8ce286d"
+
+let myPlaintext:String? = myCrackStation.decrypt(shaHash = myHash)
+let yourPlaintext:String? = myCrackStation.decrypt(shaHash = yourHash)
+
+print(myPlaintext ?? "Undecryptable")       // which should print `AbC`
+print(yourPlaintext ?? "Undecryptable")     // which should print `Undecryptable`
+
+...
+```
 
 ## Author
 Hash7ag
