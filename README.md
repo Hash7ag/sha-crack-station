@@ -1,4 +1,4 @@
-# SHA Crack Station
+# Swift SHA CrackStation Library
 A Swift library for cracking hash ciphertext
 
 ## Overview
